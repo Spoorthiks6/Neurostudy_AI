@@ -1,0 +1,7 @@
+pandas
+numpy
+matplotlib
+openpyxl
+anthropic
+scikit-learn
+joblib

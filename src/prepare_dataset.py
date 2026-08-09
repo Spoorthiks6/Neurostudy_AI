@@ -1,0 +1,124 @@
+"""
+Step 1 of the pipeline.
+
+Loads every .xlsx file in data/raw/, cleans it, and tags it with the
+correct activity label from config/activity_map.json (NOT guessed from
+the filename — that was the bug in the old version, where files like
+"lekhana.xlsx" fell through every keyword check and the raw filename
+became the "activity").
+
+If a file in data/raw/ has no entry in activity_map.json, this script
+stops and tells you exactly which filename to add, rather than silently
+mislabeling it.
+
+Run: python src/prepare_dataset.py
+"""
+from pathlib import Path
+import json
+import pandas as pd
+
+from config import (
+    RAW_DIR,
+    ACTIVITY_MAP_FILE,
+    CLEANED_SESSIONS_FILE,
+    EXPECTED_COLUMNS,
+    EEG_CORE_COLUMNS,
+    POOR_SIGNAL_THRESHOLD,
+)
+
+
+def load_activity_map() -> dict:
+    if not ACTIVITY_MAP_FILE.exists():
+        raise FileNotFoundError(
+            f"{ACTIVITY_MAP_FILE} not found. See README.md to set it up."
+        )
+    with open(ACTIVITY_MAP_FILE, "r", encoding="utf-8") as f:
+        raw_map = json.load(f)
+    return {k: v for k, v in raw_map.items() if not k.startswith("_")}
+
+
+def resolve_activity(path: Path, activity_map: dict) -> str:
+    stem = path.stem.strip().lower()
+    if stem in activity_map:
+        return activity_map[stem]
+    raise KeyError(
+        f"No activity mapping for '{path.name}'. "
+        f'Add "{stem}": "<activity>" to {ACTIVITY_MAP_FILE}.'
+    )
+
+
+def load_raw_file(path: Path, activity_map: dict) -> pd.DataFrame:
+    df = pd.read_excel(path)
+    df.insert(0, "source_file", path.name)
+    df["activity"] = resolve_activity(path, activity_map)
+    return df
+
+
+def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    keep_cols = [c for c in EXPECTED_COLUMNS if c in df.columns] + ["source_file", "activity"]
+    df = df[keep_cols]
+
+    df = df[df["poorSignal"].notna()]
+    df = df[df["poorSignal"] <= POOR_SIGNAL_THRESHOLD]
+
+    for col in EEG_CORE_COLUMNS + ["poorSignal", "blinkStrength", "eegRawValue"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    df = df.dropna(subset=EEG_CORE_COLUMNS)
+    return df
+
+
+def combine_and_clean_all() -> pd.DataFrame:
+    activity_map = load_activity_map()
+    xlsx_files = sorted(p for p in RAW_DIR.glob("*.xlsx") if not p.name.startswith("~$"))
+
+    if not xlsx_files:
+        raise FileNotFoundError(
+            f"No .xlsx files found in {RAW_DIR}. Copy your recorded sessions there first."
+        )
+
+    frames, skipped = [], []
+    for path in xlsx_files:
+        try:
+            raw = load_raw_file(path, activity_map)
+            cleaned = clean_dataframe(raw)
+            activity_shown = cleaned["activity"].iloc[0] if len(cleaned) else "N/A"
+            print(f"{path.name}: {len(raw)} rows -> {len(cleaned)} kept  [activity={activity_shown}]")
+            if len(cleaned) == 0:
+                skipped.append(path.name)
+                continue
+            frames.append(cleaned)
+        except KeyError as exc:
+            print(f"SKIPPING {path.name}: {exc}")
+            skipped.append(path.name)
+
+    if not frames:
+        raise RuntimeError(
+            "No usable sessions after cleaning. Check the activity map and "
+            "the poorSignal threshold in config.py."
+        )
+
+    combined = pd.concat(frames, ignore_index=True)
+
+    if skipped:
+        print(f"\n{len(skipped)} file(s) skipped — fix and re-run: {skipped}")
+
+    return combined
+
+
+def main() -> None:
+    combined = combine_and_clean_all()
+    combined.to_csv(CLEANED_SESSIONS_FILE, index=False)
+
+    print(f"\nSaved: {CLEANED_SESSIONS_FILE}")
+    print(f"Total rows: {len(combined)}")
+    print("\nRows per activity:")
+    print(combined["activity"].value_counts())
+    print("\nSessions per activity:")
+    print(combined.groupby("activity")["source_file"].nunique())
+
+
+if __name__ == "__main__":
+    main()

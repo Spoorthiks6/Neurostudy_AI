@@ -1,0 +1,19 @@
+Session 'reels youTube' (anusha_maam.xlsx) lasted 11.8 min. Deep focus: 2.2 min, distraction: 7.3 min. Fatigue: High. Predicted retention: 59%. Recommended break: 17 min. Suggested duration tomorrow: 23 min.
+
+Session 'meditation' (bharath_anna_meditation.xlsx) lasted 10.5 min. Deep focus: 2.0 min, distraction: 6.4 min. Fatigue: High. Predicted retention: 40%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+
+Session 'class' (lekhana.xlsx) lasted 11.1 min. Deep focus: 2.1 min, distraction: 6.7 min. Fatigue: High. Predicted retention: 46%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+
+Session 'class' (praanamya.xlsx) lasted 10.7 min. Deep focus: 2.0 min, distraction: 7.0 min. Fatigue: High. Predicted retention: 27%. Recommended break: 20 min. Suggested duration tomorrow: 20 min.
+
+Session 'reading' (ranjini_maam.xlsx) lasted 15.1 min. Deep focus: 2.9 min, distraction: 9.5 min. Fatigue: High. Predicted retention: 43%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+
+Session 'reels' (sichana_reels.xlsx) lasted 10.6 min. Deep focus: 1.9 min, distraction: 6.5 min. Fatigue: High. Predicted retention: 37%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+
+Session 'meditation' (sinchana_meditation.xlsx) lasted 10.7 min. Deep focus: 1.8 min, distraction: 6.6 min. Fatigue: High. Predicted retention: 36%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+
+Session 'talking' (sinchanatalking.xlsx) lasted 0.1 min. Deep focus: 0.0 min, distraction: 0.0 min. Fatigue: Low. Predicted retention: 90%. Recommended break: 5 min. Suggested duration tomorrow: 49 min.
+
+Session 'shloka' (siri_shloka.xlsx) lasted 10.6 min. Deep focus: 2.1 min, distraction: 6.6 min. Fatigue: High. Predicted retention: 27%. Recommended break: 18 min. Suggested duration tomorrow: 20 min.
+
+Session 'shloka' (thatha.xlsx) lasted 10.5 min. Deep focus: 2.2 min, distraction: 6.7 min. Fatigue: High. Predicted retention: 45%. Recommended break: 16 min. Suggested duration tomorrow: 20 min.

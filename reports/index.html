@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>NeuroStudy AI Dashboard</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 24px; background: #f8f9fb; color: #222; }
+h1, h2 { color: #2b3b69; }
+.card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+table.summary-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+table.summary-table th, table.summary-table td { padding: 8px 10px; border-bottom: 1px solid #e1e5eb; text-align: left; }
+table.summary-table th { background: #f1f4fb; color: #1b2b5f; }
+img.dashboard-image { width: 100%; max-width: 1200px; border-radius: 12px; margin-top: 16px; }
+</style></head><body>
+<div class="card"><h1>NeuroStudy AI Dashboard</h1>
+<p>Live session summary and dashboard report generated from your cleaned EEG data.</p></div>
+<div class="card"><h2>Dashboard Image</h2>
+<img class="dashboard-image" src="dashboard_summary.png" alt="Dashboard summary" /></div>
+<div class="card"><h2>Top Sessions by Duration</h2><table class="dataframe summary-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>source_file</th>
+      <th>activity</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>duration_min</th>
+      <th>deep_focus_min</th>
+      <th>distraction_min</th>
+      <th>avg_attention</th>
+      <th>avg_meditation</th>
+      <th>avg_engagement</th>
+      <th>avg_alpha_beta</th>
+      <th>avg_theta_beta</th>
+      <th>avg_blink</th>
+      <th>fatigue_pct</th>
+      <th>mental_fatigue</th>
+      <th>recommended_break_min</th>
+      <th>predicted_retention_pct</th>
+      <th>tomorrow_suggested_duration_min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ranjini_maam.xlsx</td>
+      <td>reading</td>
+      <td>2026-08-06 10:16:17.615</td>
+      <td>2026-08-06 10:31:24.982</td>
+      <td>15.12</td>
+      <td>2.85</td>
+      <td>9.46</td>
+      <td>70.35</td>
+      <td>69.75</td>
+      <td>140.10</td>
+      <td>1.305</td>
+      <td>0.645</td>
+      <td>129.12</td>
+      <td>0.776361</td>
+      <td>High</td>
+      <td>17</td>
+      <td>42.7</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>anusha_maam.xlsx</td>
+      <td>reels youTube</td>
+      <td>2026-08-06 10:01:51.765</td>
+      <td>2026-08-06 10:13:40.974</td>
+      <td>11.82</td>
+      <td>2.16</td>
+      <td>7.31</td>
+      <td>71.56</td>
+      <td>68.20</td>
+      <td>139.76</td>
+      <td>1.276</td>
+      <td>0.619</td>
+      <td>126.97</td>
+      <td>0.814584</td>
+      <td>High</td>
+      <td>17</td>
+      <td>58.8</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>lekhana.xlsx</td>
+      <td>class</td>
+      <td>2026-08-07 03:47:57.652</td>
+      <td>2026-08-07 03:59:02.302</td>
+      <td>11.08</td>
+      <td>2.15</td>
+      <td>6.74</td>
+      <td>70.62</td>
+      <td>69.30</td>
+      <td>139.92</td>
+      <td>1.243</td>
+      <td>0.603</td>
+      <td>127.79</td>
+      <td>0.796811</td>
+      <td>High</td>
+      <td>17</td>
+      <td>46.0</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>praanamya.xlsx</td>
+      <td>class</td>
+      <td>2026-08-07 03:35:14.836</td>
+      <td>2026-08-07 03:45:55.672</td>
+      <td>10.68</td>
+      <td>1.97</td>
+      <td>6.99</td>
+      <td>69.58</td>
+      <td>68.56</td>
+      <td>138.14</td>
+      <td>1.220</td>
+      <td>0.606</td>
+      <td>133.94</td>
+      <td>1.000000</td>
+      <td>High</td>
+      <td>20</td>
+      <td>27.3</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>sinchana_meditation.xlsx</td>
+      <td>meditation</td>
+      <td>2026-08-07 08:50:03.929</td>
+      <td>2026-08-07 09:00:43.351</td>
+      <td>10.66</td>
+      <td>1.81</td>
+      <td>6.62</td>
+      <td>69.86</td>
+      <td>70.15</td>
+      <td>140.01</td>
+      <td>1.205</td>
+      <td>0.612</td>
+      <td>127.79</td>
+      <td>0.786488</td>
+      <td>High</td>
+      <td>17</td>
+      <td>35.7</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>sichana_reels.xlsx</td>
+      <td>reels</td>
+      <td>2026-08-07 08:16:39.770</td>
+      <td>2026-08-07 08:27:15.519</td>
+      <td>10.60</td>
+      <td>1.90</td>
+      <td>6.47</td>
+      <td>69.99</td>
+      <td>69.84</td>
+      <td>139.83</td>
+      <td>1.210</td>
+      <td>0.611</td>
+      <td>128.79</td>
+      <td>0.806762</td>
+      <td>High</td>
+      <td>17</td>
+      <td>37.0</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>siri_shloka.xlsx</td>
+      <td>shloka</td>
+      <td>2026-08-07 09:03:28.114</td>
+      <td>2026-08-07 09:14:03.035</td>
+      <td>10.58</td>
+      <td>2.10</td>
+      <td>6.57</td>
+      <td>69.33</td>
+      <td>70.04</td>
+      <td>139.38</td>
+      <td>1.356</td>
+      <td>0.682</td>
+      <td>128.98</td>
+      <td>0.858423</td>
+      <td>High</td>
+      <td>18</td>
+      <td>26.8</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>thatha.xlsx</td>
+      <td>shloka</td>
+      <td>2026-08-06 15:01:23.817</td>
+      <td>2026-08-06 15:11:54.832</td>
+      <td>10.52</td>
+      <td>2.22</td>
+      <td>6.70</td>
+      <td>70.48</td>
+      <td>69.79</td>
+      <td>140.26</td>
+      <td>1.340</td>
+      <td>0.691</td>
+      <td>135.19</td>
+      <td>0.757446</td>
+      <td>High</td>
+      <td>16</td>
+      <td>44.9</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>bharath_anna_meditation.xlsx</td>
+      <td>meditation</td>
+      <td>2026-08-06 15:24:52.757</td>
+      <td>2026-08-06 15:35:23.033</td>
+      <td>10.50</td>
+      <td>1.98</td>
+      <td>6.43</td>
+      <td>70.20</td>
+      <td>69.54</td>
+      <td>139.74</td>
+      <td>1.254</td>
+      <td>0.653</td>
+      <td>129.90</td>
+      <td>0.817466</td>
+      <td>High</td>
+      <td>17</td>
+      <td>39.7</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>sinchanatalking.xlsx</td>
+      <td>talking</td>
+      <td>2026-03-18 06:20:34.488</td>
+      <td>2026-03-18 06:20:39.592</td>
+      <td>0.09</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>72.56</td>
+      <td>74.34</td>
+      <td>146.90</td>
+      <td>1.223</td>
+      <td>0.619</td>
+      <td>123.20</td>
+      <td>0.000000</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>89.7</td>
+      <td>49</td>
+    </tr>
+  </tbody>
+</table></div>
+</body></html>
