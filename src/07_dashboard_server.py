@@ -6,10 +6,12 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
+# Resolve project paths from the dashboard server file location.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 VENV_DIR = PROJECT_ROOT / ".venv"
 VENV_PYTHON = VENV_DIR / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
 
+# Restart the server with the project virtual environment when needed.
 if VENV_DIR.exists() and Path(sys.prefix).resolve() != VENV_DIR.resolve():
     if not VENV_PYTHON.is_file():
         raise FileNotFoundError(
@@ -25,6 +27,7 @@ from dotenv import load_dotenv
 from config import DASHBOARD_HTML_FILE, DASHBOARD_IMAGE_FILE, SESSION_SUMMARY_FILE
 from feedback_chat import MAX_HISTORY_MESSAGES, ROLE_GUIDANCE, call_groq, system_message
 
+# Load local configuration and define the dashboard server limits.
 load_dotenv(PROJECT_ROOT / ".env")
 HOST = "127.0.0.1"
 PORT = 8765
@@ -48,6 +51,7 @@ SUMMARY_COLUMNS = [
 class DashboardHandler(BaseHTTPRequestHandler):
     server_version = "NeuroStudyDashboard/1.0"
 
+    # Send raw response data with safe browser headers.
     def _send(self, status: int, body: bytes, content_type: str) -> None:
         self.send_response(status)
         self.send_header("Content-Type", content_type)
@@ -68,6 +72,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
         hostname = urlsplit(f"//{self.headers.get('Host', '')}").hostname
         return hostname in {"localhost", "127.0.0.1"}
 
+    # Serve the dashboard page and its generated summary image.
     def do_GET(self) -> None:
         if not self._host_is_local():
             self._send_json(403, {"error": "Only local browser requests are allowed."})
@@ -153,6 +158,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
                 column for column in SUMMARY_COLUMNS if column in summary_df.columns
             ]
             summary = summary_df[available_columns].to_json(orient="records", indent=2)
+            # Ask Groq to generate feedback using the session summary.
             answer = call_groq(
                 api_key,
                 [system_message(summary, role), *messages[-MAX_HISTORY_MESSAGES:]],
@@ -177,6 +183,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
+    # Confirm that generated files and API configuration are available.
     if not DASHBOARD_HTML_FILE.is_file():
         raise FileNotFoundError("Dashboard not found. Run `python3 run_pipeline.py` first.")
     if not SESSION_SUMMARY_FILE.is_file():
