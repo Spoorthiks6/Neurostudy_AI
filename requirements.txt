@@ -2,6 +2,7 @@ pandas
 numpy
 matplotlib
 openpyxl
-anthropic
 scikit-learn
 joblib
+python-dotenv
+requests

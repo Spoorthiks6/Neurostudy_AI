@@ -33,9 +33,7 @@ OPTIONAL_STEPS = [
 ]
 
 FINAL_STEPS = [
-    ("Step 6: Generating session dashboard", "06_generate_session_dashboard.py"),
-    ("Step 7: Generating LLM coaching notes", "07_generate_llm_coaching_notes.py"),
-    ("Updating dashboard with coaching notes", "06_generate_session_dashboard.py"),
+    ("Step 6: Generating session dashboard and interactive chat", "06_generate_session_dashboard.py"),
 ]
 
 

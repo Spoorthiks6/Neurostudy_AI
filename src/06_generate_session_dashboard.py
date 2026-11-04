@@ -173,7 +173,7 @@ def plot_dashboard(summary_df: pd.DataFrame) -> None:
     plt.close(fig)
 
 
-# Assemble the final HTML report with the dashboard image and coaching notes.
+# Assemble the dashboard with session summaries and the interactive chat.
 def generate_html_report(summary_df: pd.DataFrame) -> None:
     top_sessions_html = summary_df.sort_values("duration_min", ascending=False).head(10).to_html(
         index=False, classes="summary-table", border=0, justify="left",
@@ -269,7 +269,7 @@ placeholder="Ask a question about your sessions..."></textarea>
       history = previousHistory;
       input.value = question;
       statusElement.textContent = error instanceof TypeError
-        ? "Can't reach the local feedback server. Start `python3 src/09_dashboard_server.py` and open http://localhost:8765/."
+        ? "Can't reach the local feedback server. Start `python3 src/07_dashboard_server.py` and open http://localhost:8765/."
         : error.message;
     } finally {
       input.disabled = false;

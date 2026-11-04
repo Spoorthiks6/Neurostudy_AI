@@ -8,10 +8,22 @@ table.summary-table { width: 100%; border-collapse: collapse; margin-top: 12px; 
 table.summary-table th, table.summary-table td { padding: 8px 10px; border-bottom: 1px solid #e1e5eb; text-align: left; }
 table.summary-table th { background: #f1f4fb; color: #1b2b5f; }
 img.dashboard-image { width: 100%; max-width: 1200px; border-radius: 12px; margin-top: 16px; }
-.note-block { background: #f7f9fd; border-left: 4px solid #3b82f6; padding: 12px 14px; margin-top: 10px; border-radius: 8px; line-height: 1.5; }
+.chat-controls, #chat-form { display: flex; gap: 10px; align-items: center; margin: 12px 0; }
+.chat-controls select, #chat-input { border: 1px solid #ccd3df; border-radius: 8px; padding: 10px; font: inherit; }
+.chat-controls button, #send-message { border: 0; border-radius: 8px; padding: 10px 16px; background: #2b3b69; color: white; font: inherit; cursor: pointer; }
+.chat-controls button { margin-left: auto; background: #64748b; }
+#chat-form { align-items: stretch; }
+#chat-input { flex: 1; resize: vertical; min-width: 0; }
+.chat-messages { height: 320px; overflow-y: auto; background: #f7f9fd; border: 1px solid #e1e5eb; border-radius: 10px; padding: 12px; }
+.chat-message { max-width: 85%; padding: 10px 12px; margin: 8px 0; border-radius: 12px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-message.assistant { background: white; border: 1px solid #e1e5eb; }
+.chat-message.user { margin-left: auto; background: #e7efff; }
+.chat-status { color: #526079; min-height: 1.2em; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 600px) { body { margin: 12px; } .chat-controls { flex-wrap: wrap; } .chat-controls button { margin-left: 0; } }
 </style></head><body>
 <div class="card"><h1>NeuroStudy AI Dashboard</h1>
-<p>Live session summary and dashboard report generated from your cleaned EEG data.</p></div>
+<p>Session summary and dashboard report generated from your cleaned EEG data.</p></div>
 <div class="card"><h2>Dashboard Image</h2>
 <img class="dashboard-image" src="dashboard_summary.png" alt="Dashboard summary" /></div>
 <div class="card"><h2>Top Sessions by Duration</h2><table class="dataframe summary-table">
@@ -230,6 +242,112 @@ img.dashboard-image { width: 100%; max-width: 1200px; border-radius: 12px; margi
     </tr>
   </tbody>
 </table></div>
-<div class="card"><h2>Session-by-session coaching notes</h2><div class='note-block'><strong>Anusha — reels</strong><br>Your estimated deep-focus time was 2.2 of 11.8 minutes; try starting your next reels session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 7.3 minutes, so reduce interruptions during reels by silencing notifications and keeping only the needed materials in view. Your session received a low fatigue label from an experimental rule, so treat the recommended 9-minute break and 43-minute next-session duration as rough suggestions, not validated targets.</div><div class='note-block'><strong>Bharath Anna — meditation</strong><br>Bharath Anna, your 10.5‑minute meditation session showed a solid average attention of about 70%, which is a good foundation for deeper practice. To help reduce the estimated 6.4 minutes of distraction, try incorporating a brief pause or a grounding breath every few minutes, which can help maintain focus. Since the heuristic estimate of your retention is around 56 %, extending tomorrow’s session to the suggested 34 minutes could give you more time to consolidate the calm you’re building today.</div><div class='note-block'><strong>Lekhana — class</strong><br>Lekhana, during your recent class you spent roughly 2 minutes in deep focus and about 7 minutes distracted, so incorporating brief, intentional pauses could help you stay more engaged. Since your estimated retention is around 67 %, reviewing the main concepts shortly after class could strengthen what you learned.</div><div class='note-block'><strong>Praanamya — class</strong><br>Praanamya, during your recent class session you spent about 2 minutes in deep focus and around 7 minutes feeling distracted, so adding a brief 5‑minute pause every 15 minutes could help you maintain steadier attention. Your average attention and meditation levels were roughly 70, which suggests you’re engaging well, but the high blink count and estimated mental fatigue indicate a good time to stretch or do a quick breathing exercise to refresh your mind. Based on the retention estimate of about 29 %, planning a 20‑minute review tomorrow and incorporating active recall techniques could boost the material you retain from this class.</div><div class='note-block'><strong>Ranjini — reading</strong><br>Ranjini, during your 15‑minute reading session you spent about 3 minutes in deep focus and roughly 9 minutes distracted, so a short 6‑minute break could help reset your attention before you continue. Your average attention and meditation levels were solid, and extending your reading to the suggested 39 minutes tomorrow might raise the estimated retention from 63 % to a higher value.</div><div class='note-block'><strong>Sinchana — meditation</strong><br>Sinchana, your 10.66‑minute meditation session showed a good balance of attention and engagement, with an estimated 69.86% attention and 140.01% engagement, so you’re already on a solid path.</div><div class='note-block'><strong>Sinchana — reels</strong><br>Sinchana, during your reels session you spent roughly 1.9 minutes in deep focus and about 6.5 minutes distracted, so breaking the activity into shorter, focused bursts could help you stay on track.</div><div class='note-block'><strong>Siri — shloka</strong><br>Your estimated deep-focus time was 2.1 of 10.6 minutes; try starting your next shloka session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 6.6 minutes, so reduce interruptions during shloka by silencing notifications and keeping only the needed materials in view. Your session received a medium fatigue label from an experimental rule, so treat the recommended 11-minute break and 24-minute next-session duration as rough suggestions, not validated targets.</div><div class='note-block'><strong>Thatha — shloka</strong><br>Your estimated deep-focus time was 2.2 of 10.5 minutes; try starting your next shloka session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 6.7 minutes, so reduce interruptions during shloka by silencing notifications and keeping only the needed materials in view. Your session received a low fatigue label from an experimental rule, so treat the recommended 5-minute break and 42-minute next-session duration as rough suggestions, not validated targets.</div></div>
-<div class="card"><h2>Dashboard-level insight</h2><div class='note-block'>Across 9 sessions, &#x27;reels&#x27; showed the highest predicted retention (84%), while &#x27;class&#x27; showed the lowest (29%). (Set GROQ_API_KEY for a richer LLM-generated summary.)</div></div>
+<div class="card"><h2>Interactive study feedback</h2>
+<p>Ask questions about your recorded sessions and continue the conversation. Feedback uses experimental estimates, not validated assessments.</p>
+<div class="chat-controls">
+<label for="feedback-role">Feedback perspective</label>
+<select id="feedback-role">
+<option value="student">Student</option><option value="teacher">Teacher</option>
+<option value="parent">Parent</option><option value="coach">Study coach</option>
+<option value="overall">Overall</option></select>
+<button id="clear-chat" type="button">New conversation</button></div>
+<div id="chat-messages" class="chat-messages" role="log" aria-live="polite">
+<div class="chat-message assistant">Hi! Ask me about your sessions, activities, or practical next steps.</div>
+</div>
+<form id="chat-form">
+<label class="visually-hidden" for="chat-input">Your question</label>
+<textarea id="chat-input" rows="2" maxlength="1500" required
+placeholder="Ask a question about your sessions..."></textarea>
+<button id="send-message" type="submit">Send</button></form>
+<p id="chat-status" class="chat-status" aria-live="polite">Checking the local feedback service...</p>
+</div>
+<script>
+(() => {
+  const form = document.getElementById("chat-form");
+  const input = document.getElementById("chat-input");
+  const roleSelect = document.getElementById("feedback-role");
+  const messagesElement = document.getElementById("chat-messages");
+  const statusElement = document.getElementById("chat-status");
+  const sendButton = document.getElementById("send-message");
+  let history = [];
+
+  if (window.location.protocol === "file:") {
+    statusElement.textContent = "This page was opened as a file. Start the dashboard server and open http://localhost:8765/ to use live chat.";
+    input.disabled = true;
+    sendButton.disabled = true;
+  } else if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    statusElement.textContent = "Open this dashboard at http://localhost:8765/ to use live chat.";
+    input.disabled = true;
+    sendButton.disabled = true;
+  } else {
+    statusElement.textContent = "Live chat is ready. Ask a question to begin.";
+  }
+
+  function addMessage(role, text) {
+    const message = document.createElement("div");
+    message.className = `chat-message ${role}`;
+    message.textContent = text;
+    messagesElement.appendChild(message);
+    messagesElement.scrollTop = messagesElement.scrollHeight;
+    return message;
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question || sendButton.disabled) return;
+
+    const previousHistory = history.slice();
+    history = history.slice(-11);
+    history.push({role: "user", content: question});
+    addMessage("user", question);
+    input.value = "";
+    input.disabled = true;
+    sendButton.disabled = true;
+    statusElement.textContent = "Thinking...";
+    const pending = addMessage("assistant", "Thinking...");
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({role: roleSelect.value, messages: history})
+      });
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error("The local feedback server returned an invalid response.");
+      }
+      if (!response.ok) throw new Error(result.error || "Feedback request failed.");
+      if (typeof result.answer !== "string" || !result.answer.trim()) {
+        throw new Error("The feedback service returned an empty answer. Please try again.");
+      }
+      pending.textContent = result.answer;
+      history.push({role: "assistant", content: result.answer});
+      history = history.slice(-12);
+      statusElement.textContent = "Ready for your next question.";
+    } catch (error) {
+      pending.remove();
+      history = previousHistory;
+      input.value = question;
+      statusElement.textContent = error instanceof TypeError
+        ? "Can't reach the local feedback server. Start `python3 src/07_dashboard_server.py` and open http://localhost:8765/."
+        : error.message;
+    } finally {
+      input.disabled = false;
+      sendButton.disabled = false;
+      input.focus();
+    }
+  });
+
+  document.getElementById("clear-chat").addEventListener("click", () => {
+    history = [];
+    messagesElement.replaceChildren();
+    addMessage("assistant", "New conversation started. What would you like to know?");
+    statusElement.textContent = "Conversation cleared.";
+    input.focus();
+  });
+})();
+</script>
 </body></html>
