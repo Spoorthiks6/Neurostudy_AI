@@ -1,0 +1,31 @@
+Leave-One-Person-Out Evaluation
+========================================
+
+Per-person accuracy (this person held out entirely from training):
+  anusha: 0.155
+  bharath_anna: 0.071
+  lekhana: 0.127
+  praanamya: 0.150
+  ranjini: 0.000
+  sinchana: 0.157
+  siri: 0.136
+  thatha: 0.250
+
+Overall pooled accuracy: 0.135
+
+Session-split LOSO pooled accuracy: 0.135
+
+Pooled classification report:
+              precision    recall  f1-score   support
+
+       class       0.12      0.14      0.13       123
+  meditation       0.13      0.10      0.12       117
+     reading       0.00      0.00      0.00        54
+       reels       0.17      0.17      0.17       118
+      shloka       0.20      0.19      0.19       115
+
+    accuracy                           0.13       527
+   macro avg       0.12      0.12      0.12       527
+weighted avg       0.14      0.13      0.14       527
+
+Interpretation: LOSO allows other sessions from the held-out person in training, whereas LOPO holds out that person's sessions entirely. The difference between these estimates is the observed person-generalization gap.

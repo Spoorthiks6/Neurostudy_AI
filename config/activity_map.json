@@ -1,22 +1,11 @@
 {
-  "_comment": "Map every raw .xlsx filename (WITHOUT .xlsx, lowercase) to exactly one of the 5 canonical activities: reels, studying, sleep, shloka, listening. This file is the single source of truth for labels — prepare_dataset.py will refuse to run on any file not listed here, so you always know exactly what got labeled what.",
-
-  "ranjini_maam": "reading",
-  "anusha_maam": "reels youTube",
+  "anusha_maam": "reels",
+  "bharath_anna_meditation": "meditation",
   "lekhana": "class",
   "praanamya": "class",
-  "sinchana": "reels",
-  "thatha": "shloka",
-  "siri": "shloka",
-  "siri_shloka": "shloka",
-  "bharath_anna": "meditation",
-  "bharath_anna_meditation": "meditation",
-  "sinchana_mahesh": "meditation",
-  "sinchana_meditation": "meditation",
+  "ranjini_maam": "reading",
   "sinchana_reels": "reels",
-  "sinchanatalking": "talking",
-  "abhipsa": "reels",
-  "demo": "demo",
-  "talking": "talking",
-  "reels": "reels"
+  "sinchana_meditation": "meditation",
+  "siri_shloka": "shloka",
+  "thatha": "shloka"
 }

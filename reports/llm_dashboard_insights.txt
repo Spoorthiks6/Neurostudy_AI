@@ -1,1 +1,1 @@
-Across 10 sessions, 'talking' showed the highest predicted retention (90%), while 'shloka' showed the lowest (27%). (Set ANTHROPIC_API_KEY for a richer LLM-generated summary.)
+Across 9 sessions, 'reels' showed the highest predicted retention (84%), while 'class' showed the lowest (29%). (Set GROQ_API_KEY for a richer LLM-generated summary.)

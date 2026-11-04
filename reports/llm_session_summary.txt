@@ -1,19 +1,26 @@
-Session 'reels youTube' (anusha_maam.xlsx) lasted 11.8 min. Deep focus: 2.2 min, distraction: 7.3 min. Fatigue: High. Predicted retention: 59%. Recommended break: 17 min. Suggested duration tomorrow: 23 min.
+Anusha — reels
+Your estimated deep-focus time was 2.2 of 11.8 minutes; try starting your next reels session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 7.3 minutes, so reduce interruptions during reels by silencing notifications and keeping only the needed materials in view. Your session received a low fatigue label from an experimental rule, so treat the recommended 9-minute break and 43-minute next-session duration as rough suggestions, not validated targets.
 
-Session 'meditation' (bharath_anna_meditation.xlsx) lasted 10.5 min. Deep focus: 2.0 min, distraction: 6.4 min. Fatigue: High. Predicted retention: 40%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+Bharath Anna — meditation
+Bharath Anna, your 10.5‑minute meditation session showed a solid average attention of about 70%, which is a good foundation for deeper practice. To help reduce the estimated 6.4 minutes of distraction, try incorporating a brief pause or a grounding breath every few minutes, which can help maintain focus. Since the heuristic estimate of your retention is around 56 %, extending tomorrow’s session to the suggested 34 minutes could give you more time to consolidate the calm you’re building today.
 
-Session 'class' (lekhana.xlsx) lasted 11.1 min. Deep focus: 2.1 min, distraction: 6.7 min. Fatigue: High. Predicted retention: 46%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+Lekhana — class
+Lekhana, during your recent class you spent roughly 2 minutes in deep focus and about 7 minutes distracted, so incorporating brief, intentional pauses could help you stay more engaged. Since your estimated retention is around 67 %, reviewing the main concepts shortly after class could strengthen what you learned.
 
-Session 'class' (praanamya.xlsx) lasted 10.7 min. Deep focus: 2.0 min, distraction: 7.0 min. Fatigue: High. Predicted retention: 27%. Recommended break: 20 min. Suggested duration tomorrow: 20 min.
+Praanamya — class
+Praanamya, during your recent class session you spent about 2 minutes in deep focus and around 7 minutes feeling distracted, so adding a brief 5‑minute pause every 15 minutes could help you maintain steadier attention. Your average attention and meditation levels were roughly 70, which suggests you’re engaging well, but the high blink count and estimated mental fatigue indicate a good time to stretch or do a quick breathing exercise to refresh your mind. Based on the retention estimate of about 29 %, planning a 20‑minute review tomorrow and incorporating active recall techniques could boost the material you retain from this class.
 
-Session 'reading' (ranjini_maam.xlsx) lasted 15.1 min. Deep focus: 2.9 min, distraction: 9.5 min. Fatigue: High. Predicted retention: 43%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+Ranjini — reading
+Ranjini, during your 15‑minute reading session you spent about 3 minutes in deep focus and roughly 9 minutes distracted, so a short 6‑minute break could help reset your attention before you continue. Your average attention and meditation levels were solid, and extending your reading to the suggested 39 minutes tomorrow might raise the estimated retention from 63 % to a higher value.
 
-Session 'reels' (sichana_reels.xlsx) lasted 10.6 min. Deep focus: 1.9 min, distraction: 6.5 min. Fatigue: High. Predicted retention: 37%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+Sinchana — meditation
+Sinchana, your 10.66‑minute meditation session showed a good balance of attention and engagement, with an estimated 69.86% attention and 140.01% engagement, so you’re already on a solid path.
 
-Session 'meditation' (sinchana_meditation.xlsx) lasted 10.7 min. Deep focus: 1.8 min, distraction: 6.6 min. Fatigue: High. Predicted retention: 36%. Recommended break: 17 min. Suggested duration tomorrow: 20 min.
+Sinchana — reels
+Sinchana, during your reels session you spent roughly 1.9 minutes in deep focus and about 6.5 minutes distracted, so breaking the activity into shorter, focused bursts could help you stay on track.
 
-Session 'talking' (sinchanatalking.xlsx) lasted 0.1 min. Deep focus: 0.0 min, distraction: 0.0 min. Fatigue: Low. Predicted retention: 90%. Recommended break: 5 min. Suggested duration tomorrow: 49 min.
+Siri — shloka
+Your estimated deep-focus time was 2.1 of 10.6 minutes; try starting your next shloka session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 6.6 minutes, so reduce interruptions during shloka by silencing notifications and keeping only the needed materials in view. Your session received a medium fatigue label from an experimental rule, so treat the recommended 11-minute break and 24-minute next-session duration as rough suggestions, not validated targets.
 
-Session 'shloka' (siri_shloka.xlsx) lasted 10.6 min. Deep focus: 2.1 min, distraction: 6.6 min. Fatigue: High. Predicted retention: 27%. Recommended break: 18 min. Suggested duration tomorrow: 20 min.
-
-Session 'shloka' (thatha.xlsx) lasted 10.5 min. Deep focus: 2.2 min, distraction: 6.7 min. Fatigue: High. Predicted retention: 45%. Recommended break: 16 min. Suggested duration tomorrow: 20 min.
+Thatha — shloka
+Your estimated deep-focus time was 2.2 of 10.5 minutes; try starting your next shloka session with one short, single-task study block and extend it gradually if it feels manageable. The distraction heuristic flagged 6.7 minutes, so reduce interruptions during shloka by silencing notifications and keeping only the needed materials in view. Your session received a low fatigue label from an experimental rule, so treat the recommended 5-minute break and 42-minute next-session duration as rough suggestions, not validated targets.

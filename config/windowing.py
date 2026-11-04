@@ -1,17 +1,3 @@
-"""
-Step 4 — turn raw per-sample EEG rows into windowed feature vectors.
-
-Classical ML (Random Forest etc.) needs one row per example, not a
-raw time series. This slides a window over each session's rows and
-computes summary statistics (mean/std/min/max/slope) per feature per
-window — the same trick feature_extraction.py used before, but now
-shared, applied consistently across every session, and wired into the
-rest of the pipeline instead of operating on one hardcoded file.
-
-Each output row = one window, labeled with that session's activity.
-
-Run: python src/windowing.py
-"""
 import numpy as np
 import pandas as pd
 
@@ -47,7 +33,15 @@ def build_windows(df: pd.DataFrame) -> pd.DataFrame:
     rows = []
     skipped_short = []
 
-    for (source_file, activity), group in df.groupby(["source_file", "activity"]):
+    group_cols = ["source_file", "activity", "person"] if "person" in df.columns else ["source_file", "activity"]
+
+    for key, group in df.groupby(group_cols):
+        if "person" in df.columns:
+            source_file, activity, person = key
+        else:
+            source_file, activity = key
+            person = "unknown"
+
         group = group.sort_values("timestampMs").reset_index(drop=True)
 
         if len(group) < max(WINDOW_SIZE, MIN_ROWS_PER_SESSION):
@@ -56,7 +50,7 @@ def build_windows(df: pd.DataFrame) -> pd.DataFrame:
 
         for start in range(0, len(group) - WINDOW_SIZE + 1, STEP_SIZE):
             window = group.iloc[start : start + WINDOW_SIZE]
-            feats = {"source_file": source_file, "activity": activity}
+            feats = {"source_file": source_file, "activity": activity, "person": person}
             for col in FEATURE_COLS:
                 stats = window_stats(window[col].values)
                 for stat_name, val in stats.items():
